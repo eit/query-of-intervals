@@ -11,5 +11,5 @@ public class Node{
     public Node parent;
     public Node right;
     public Node left;
-    public List<Integer> collector = new ArrayList<Integer>();
+    public List<String> collector = new ArrayList<String>();
 }

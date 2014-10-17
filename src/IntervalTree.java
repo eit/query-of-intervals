@@ -1,5 +1,5 @@
 /**
- * @author eit
+ * @author Jayson LP Chen
  * @version v1.0
  */
 public class IntervalTree extends BinarySearchTree {
@@ -9,13 +9,28 @@ public class IntervalTree extends BinarySearchTree {
 		this.min = 0;
 		this.max = 23;
 
-		for (int i = min; i < max; i++) {
+		for (int i = min; i <= max; i++) {
 			super.insert(i);
 		}
 		balance();
 	}
 
-	public void search(int upper, int lower) {
+	public void InsertOfInterval(String name, int LowerBound, int UpperBound) {
 		
+		for(int i = LowerBound; i<= UpperBound; i++)
+		{
+			super.searchRecord(super.root, i).collector.add(name);
+		}
+	}
+	
+	public int QueryOfInterval(int LowerBound, int UpperBound) {
+		int MaxCount=0;
+		for(int i = LowerBound; i<= UpperBound; i++)
+		{
+			if(MaxCount < super.searchRecord(super.root, i).collector.size()){
+				MaxCount = super.searchRecord(super.root, i).collector.size();
+			}
+		}
+		return MaxCount;
 	}
 }
