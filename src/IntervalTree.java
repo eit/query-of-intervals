@@ -19,7 +19,7 @@ public class IntervalTree extends BinarySearchTree {
 		
 		for(int i = LowerBound; i<= UpperBound; i++)
 		{
-			super.searchRecord(super.root, i).collector.add(name);
+			super.search(i).collector.add(name);
 		}
 	}
 	
@@ -27,8 +27,8 @@ public class IntervalTree extends BinarySearchTree {
 		int MaxCount=0;
 		for(int i = LowerBound; i<= UpperBound; i++)
 		{
-			if(MaxCount < super.searchRecord(super.root, i).collector.size()){
-				MaxCount = super.searchRecord(super.root, i).collector.size();
+			if(MaxCount < super.search(i).collector.size()){
+				MaxCount = super.search(i).collector.size();
 			}
 		}
 		return MaxCount;

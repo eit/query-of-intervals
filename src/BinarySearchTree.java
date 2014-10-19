@@ -3,9 +3,10 @@ import java.util.Deque;
 
 // 二元搜尋樹
 public class BinarySearchTree {
-	protected Node root;
+	private Node root;
 	private int NodeCount = 0;
 
+	// 插入新的節點
 	public void insert(int value) {
 		Node node = new Node(value);
 		NodeCount++;
@@ -16,7 +17,6 @@ public class BinarySearchTree {
 		insertRecord(root, node);
 	}
 
-	// 插入新的節點
 	private void insertRecord(Node latestRoot, Node node) {
 
 		if (latestRoot.value > node.value) {
@@ -39,6 +39,19 @@ public class BinarySearchTree {
 		}
 	}
 
+	// 搜尋節點，找到的話回傳該節點
+    public Node search(int value) {
+        return searchRecord(root, value);
+    }
+
+    private Node searchRecord(Node latestRoot, int value) {
+        if (latestRoot == null) return null;
+        int cmp = value-latestRoot.value;
+        if      (cmp < 0) return searchRecord(latestRoot.left, value);
+        else if (cmp > 0) return searchRecord(latestRoot.right, value);
+        else              return latestRoot;
+    }
+	/*
 	public Node searchRecord(Node latestRoot, int value) {
 
 		if (latestRoot.value == value) {
@@ -58,7 +71,8 @@ public class BinarySearchTree {
 		}
 		return null;
 	}
-
+*/
+    
 	// 平衡歪斜樹
 	public void balance() {
 		if (NodeCount <= 1)
