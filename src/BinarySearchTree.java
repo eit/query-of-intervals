@@ -1,12 +1,12 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-// 二元搜尋樹
+// Binary Search Tree
 public class BinarySearchTree {
 	private Node root;
 	private int NodeCount = 0;
 
-	// 插入新的節點
+	// insert a node
 	public void insert(int value) {
 		Node node = new Node(value);
 		NodeCount++;
@@ -39,7 +39,7 @@ public class BinarySearchTree {
 		}
 	}
 
-	// 搜尋節點，找到的話回傳該節點
+	// search a node by value and return the node
     public Node search(int value) {
         return searchRecord(root, value);
     }
@@ -73,7 +73,7 @@ public class BinarySearchTree {
 	}
 */
     
-	// 平衡歪斜樹
+	// balance this tree
 	public void balance() {
 		if (NodeCount <= 1)
 			return;
