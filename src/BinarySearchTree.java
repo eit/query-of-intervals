@@ -63,7 +63,8 @@ public class BinarySearchTree {
 
 		// STRIP ITEMS FROM TREE AS LIST
 
-		{// Taking advantage of Java's generic collections
+		else {
+			// Taking advantage of Java's generic collections
 			Deque<Node> stack = new ArrayDeque<Node>();
 			Node cur = root, front = null, tail = null;
 
@@ -90,11 +91,10 @@ public class BinarySearchTree {
 				}
 			}
 			root = front;
-		}
 
-		// FORM BALANCED TREE --- after Stout and Warren
+			// FORM BALANCED TREE --- after Stout and Warren
 
-		{ // Pseudo-root used; real root to the right
+			// Pseudo-root used; real root to the right
 			Node pseudo = new Node(-1);
 			int m, nBack = NodeCount - 1;
 
