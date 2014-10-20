@@ -40,39 +40,22 @@ public class BinarySearchTree {
 	}
 
 	// search a node by value and return the node
-    public Node search(int value) {
-        return searchRecord(root, value);
-    }
-
-    private Node searchRecord(Node latestRoot, int value) {
-        if (latestRoot == null) return null;
-        int cmp = value-latestRoot.value;
-        if      (cmp < 0) return searchRecord(latestRoot.left, value);
-        else if (cmp > 0) return searchRecord(latestRoot.right, value);
-        else              return latestRoot;
-    }
-	/*
-	public Node searchRecord(Node latestRoot, int value) {
-
-		if (latestRoot.value == value) {
-			return latestRoot;
-		} else if (latestRoot.value > value) {
-			if (latestRoot.left.value == value) {
-				return latestRoot.left;
-			} else {
-				searchRecord(latestRoot.left, value);
-			}
-		} else {
-			if (latestRoot.right.value == value) {
-				return latestRoot.right;
-			} else {
-				searchRecord(latestRoot.right, value);
-			}
-		}
-		return null;
+	public Node search(int value) {
+		return searchRecord(root, value);
 	}
-*/
-    
+
+	private Node searchRecord(Node latestRoot, int value) {
+		if (latestRoot == null)
+			return null;
+		int cmp = value - latestRoot.value;
+		if (cmp < 0)
+			return searchRecord(latestRoot.left, value);
+		else if (cmp > 0)
+			return searchRecord(latestRoot.right, value);
+		else
+			return latestRoot;
+	}
+
 	// balance this tree
 	public void balance() {
 		if (NodeCount <= 1)
