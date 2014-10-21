@@ -57,26 +57,29 @@ public class BinarySearchTree {
 	}
 
 	// balance this tree
+	// based on Colin Day's Algorithm
 	public void balance() {
 		if (NodeCount <= 1) {
 			return;
 		} else {
 			// Start to balance
-			a();
-			b();
+			traversal();
+			rotation();
 		}
 		return;
 	}
 
-	private void a() {
+	private void traversal() {
 		Deque<Node> stack = new ArrayDeque<Node>();
 		Node cur = root, front = null, tail = null;
 
 		// In-order traversal via a stack (after Carrano)
 
-		while (true) // Infinite loop exited via break Carrano code is
-						// equivalent in behavior to a "while"
-		{
+		while (true) 
+		{	
+			// Infinite loop exited via break Carrano code is
+			// equivalent in behavior to a "while"
+		
 			while (cur != null) {
 				stack.push(cur);
 				cur = cur.left;
@@ -98,9 +101,8 @@ public class BinarySearchTree {
 		return;
 	}
 
-	private void b() {
+	private void rotation() {
 		// FORM BALANCED TREE --- after Stout and Warren
-
 		// Pseudo-root used; real root to the right
 		Node pseudo = new Node(-1);
 		int m, nBack = NodeCount - 1;
@@ -110,7 +112,8 @@ public class BinarySearchTree {
 			int j = 0;
 			Node scanner = pseudo;
 
-			for (j = 0; j < m; j++) {// leftward rotation
+			for (j = 0; j < m; j++) {
+				// leftward rotation
 				Node child = scanner.right;
 				scanner.right = child.right;
 				scanner = scanner.right;
