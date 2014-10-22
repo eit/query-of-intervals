@@ -28,6 +28,13 @@ public class IntervalTree extends BinarySearchTree {
 
 	// query a interval on this interval tree
 	public int QueryOfInterval(int LowerBound, int UpperBound) {
+		if(!ckeck(LowerBound, UpperBound))
+		{
+			int temp = LowerBound;
+			LowerBound = UpperBound;
+			UpperBound = temp;
+		}
+		
 		int MaxCount = 0;
 		for (int i = LowerBound; i <= UpperBound; i++) {
 			if (MaxCount < super.search(i).collector.size()) {
@@ -35,5 +42,12 @@ public class IntervalTree extends BinarySearchTree {
 			}
 		}
 		return MaxCount;
+	}
+	
+	private boolean ckeck (int small, int big){
+		if ((big-small)>=0)
+			return true;
+		else
+			return false;
 	}
 }

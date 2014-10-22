@@ -2,6 +2,13 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 // Binary Search Tree
+/**
+ * Build a binary search tree
+ * balance function is forked from "http://penguin.ewu.edu/~trolfe/DSWpaper/Phase1/index.html"
+ * 
+ * @author Jayson LP Chen
+ * @version v1.0
+ */
 public class BinarySearchTree {
 	private Node root;
 	private int NodeCount = 0;
